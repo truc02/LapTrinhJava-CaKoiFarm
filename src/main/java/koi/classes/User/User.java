@@ -2,11 +2,13 @@ package koi.classes.User;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table
+@Table(name = "USERS")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "username")
@@ -47,5 +49,4 @@ public class User {
         this.phone = phone;
         this.email = email;
     }
-
 }
