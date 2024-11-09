@@ -5,8 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "USERS")
-@Inheritance(strategy = InheritanceType.JOINED)
-public class User {
+public class User  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
