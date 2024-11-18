@@ -6,6 +6,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class KoiServiceRepository implements IKoiServiceRepository {
 
     private final SessionFactory sessionFactory;
@@ -80,6 +82,20 @@ public class KoiServiceRepository implements IKoiServiceRepository {
             session.close();
         }
         return koiService;
+    }
+
+    @Override
+    public List<KoiService> findAll() {
+        Session session = sessionFactory.openSession();
+        List<KoiService> koiServices = null;
+        try {
+            koiServices = session.createQuery("FROM KoiService").list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return koiServices;
     }
 
     public void shutdown() {

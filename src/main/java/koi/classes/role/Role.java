@@ -1,5 +1,6 @@
 package koi.classes.role;
 
+import koi.classes.Employee.Employee;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,22 @@ public class Role {
     private String name;
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public Role() {
     }
 
@@ -27,5 +44,6 @@ public class Role {
         this.id = id;
         this.name = name;
     }
-
+    @OneToOne(mappedBy = "role")
+    private Employee employee;
 }

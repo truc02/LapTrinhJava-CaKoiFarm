@@ -14,9 +14,6 @@ public class projectMain {
 
         String filename = "hibernate.cfg.xml";
         IEmployeeRepository employeeRepository = new EmployeeRepository(filename);
-        Employee employee = new Employee("truc","NguyenMinhTruc","29/02/2004","123123","hinhanh","Quan12",
-                "0387368199","2251120192@ut.edu.vn");
-        employeeRepository.save(employee);
         System.out.println("Employee saved successfully!");
 
     }
